@@ -19,14 +19,14 @@ jobs:
           channel: stable
           version: 3.19.6
 
-      - name: Install Melos
-        run: flutter pub global activate melos
-
       - name: Setup Melos
-        run: melos bootstrap
+        uses: bluefireteam/melos-action@v3
+        with:
+          melos_version: '6.1.0'
+          run-bootstrap: false
 
       - name: Build iOS Apps
-        run: melos exec build:android:apps"
+        run: melos exec build:ios:apps
 
   build_android_apps:
     name: Build Android Apps
@@ -41,11 +41,11 @@ jobs:
           channel: stable
           version: 3.19.6
 
-      - name: Install Melos
-        run: flutter pub global activate melos
-
       - name: Setup Melos
-        run: melos bootstrap
+        uses: bluefireteam/melos-action@v3
+        with:
+          melos_version: '6.1.0'
+          run-bootstrap: false
 
       - name: Build Android Apps
-        run: melos exec build:android:apps"
+        run: melos exec build:android:apps
