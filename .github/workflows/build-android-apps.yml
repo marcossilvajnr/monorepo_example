@@ -26,7 +26,7 @@ jobs:
           run-bootstrap: false
 
       - name: Build iOS Apps
-        run: melos exec build:ios:apps
+        run: melos build:ios:apps
 
   build_android_apps:
     name: Build Android Apps
@@ -45,7 +45,6 @@ jobs:
         uses: bluefireteam/melos-action@v3
         with:
           melos_version: '6.1.0'
-          run-bootstrap: false
 
       - name: Build Android Apps
-        run: melos exec build:android:apps
+        run: melos build:android:apps
