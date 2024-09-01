@@ -1,4 +1,4 @@
-name: Build Android Apps
+name: Build Apps
 
 on:
   push:
@@ -6,7 +6,29 @@ on:
       - main
 
 jobs:
-  build:
+  build_ios_apps:
+    name: Build iOS Apps
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Monorepo
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter SDK
+        uses: flutter-actions/setup-flutter@v3
+        with:
+          channel: stable
+          version: 3.19.6
+
+      - name: Install Melos
+        run: flutter pub global activate melos
+
+      - name: Setup Melos
+        run: melos bootstrap
+
+      - name: Build iOS Apps
+        run: melos exec build:android:apps"
+
+  build_android_apps:
     name: Build Android Apps
     runs-on: ubuntu-latest
     steps:
@@ -26,4 +48,4 @@ jobs:
         run: melos bootstrap
 
       - name: Build Android Apps
-        run: melos exec --concurrency=5 --category="apps" --fail-fast --flutter --dir-exists="lib" -- "flutter build aab"
+        run: melos exec build:android:apps"
