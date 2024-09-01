@@ -6,7 +6,27 @@ packages:
   - core/**
   - libraries/**
 
+categories:
+  apps:
+    - apps/**
+  core:
+    - core/**
+  libraries:
+    - libraries/**
+
 scripts:
-  test:unit_test:
-    run: melos exec --concurrency=5 --fail-fast --flutter --dir-exists="test" -- "flutter test --no-pub --coverage"
-    description: Run Flutter tests for a specific package in this project.
+  build:android:apps:
+    run: melos exec --concurrency=5 --category="apps" --fail-fast --flutter --dir-exists="lib" -- "flutter build aab"
+    description: Build all apps in this project for Android.
+
+  build:iOS:apps:
+    run: melos exec --concurrency=5 --category="apps" --fail-fast --flutter --dir-exists="lib" -- "flutter build ios"
+    description: Build all apps in this project for iOS.
+
+  test:core_unit_test:
+    run: melos exec --concurrency=5 --category="core" --fail-fast --flutter --dir-exists="test" -- "flutter test --no-pub --coverage"
+    description: Run Flutter tests for all core packages in this project.
+
+  test:libraries_unit_test:
+    run: melos exec --concurrency=5 --category="libraries" --fail-fast --flutter --dir-exists="test" -- "flutter test --no-pub --coverage"
+    description: Run Flutter tests for all libraries packages in this project.
