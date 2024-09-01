@@ -59,7 +59,7 @@ jobs:
       - name: Setup Melos
         uses: bluefireteam/melos-action@v3
         with:
-          melos_version: '6.1.0'
+          melos-version: '6.1.0'
 
       - name: Build Android Apps
         run: melos build:android:apps
