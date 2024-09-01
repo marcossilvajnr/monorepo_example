@@ -24,9 +24,6 @@ jobs:
         with:
           melos-version: '6.1.0'
           run-bootstrap: false
-      
-      - name: Prepare iOS Apps
-        run: melos build:ios:prepare
 
       - name: Build iOS Apps
         run: melos build:ios:apps
