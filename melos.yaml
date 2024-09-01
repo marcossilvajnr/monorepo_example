@@ -16,10 +16,10 @@ categories:
 
 scripts:
   build:android:apps:
-    run: melos exec --concurrency=5 --category="apps" --fail-fast --flutter --dir-exists="lib" -- "flutter build aab"
+    run: melos exec --concurrency=5 --category="apps" --fail-fast --flutter --dir-exists="lib" -- "flutter build apk"
     description: Build all apps in this project for Android.
 
-  build:iOS:apps:
+  build:ios:apps:
     run: melos exec --concurrency=5 --category="apps" --fail-fast --flutter --dir-exists="lib" -- "flutter build ios"
     description: Build all apps in this project for iOS.
 
