@@ -19,6 +19,10 @@ scripts:
     run: melos exec --concurrency=3 --category="apps" --fail-fast --flutter --dir-exists="lib" -- "flutter build apk"
     description: Build all apps in this project for Android.
 
+  build:ios:prepare:
+    run: melos exec --concurrency=3 --category="apps" --fail-fast --flutter --dir-exists="lib" -- "cd ios && pod install"
+    description: Prepare all apps in this project for iOS.
+
   build:ios:apps:
     run: melos exec --concurrency=3 --category="apps" --fail-fast --flutter --dir-exists="lib" -- "flutter build ipa"
     description: Build all apps in this project for iOS.
