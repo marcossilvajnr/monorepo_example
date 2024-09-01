@@ -1,0 +1,12 @@
+name: my_project
+repository: "https://github.com/marcossilvajnr/monorepo_example"
+
+packages:
+  - apps/**
+  - core/**
+  - libraries/**
+
+scripts:
+  test:unit_test:
+    run: melos exec --concurrency=5 --fail-fast --flutter --dir-exists="test" -- "flutter test --no-pub --coverage"
+    description: Run Flutter tests for a specific package in this project.
