@@ -34,3 +34,7 @@ scripts:
   test:libraries_unit_test:
     run: melos exec --concurrency=3 --category="libraries" --fail-fast --flutter --dir-exists="test" -- "flutter test --no-pub --coverage"
     description: Run Flutter tests for all libraries packages in this project.
+
+  analyse:libraries_unit_test:
+    run: melos exec --concurrency=3 --category="libraries" --fail-fast --flutter --dir-exists="lib" -- "flutter analize"
+    description: Run Flutter analyze for all libraries packages in this project.
