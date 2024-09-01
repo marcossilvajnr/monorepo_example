@@ -20,7 +20,7 @@ scripts:
     description: Build all apps in this project for Android.
 
   build:ios:apps:
-    run: melos exec --concurrency=3 --category="apps" --fail-fast --flutter --dir-exists="lib" -- "flutter build ios"
+    run: melos exec --concurrency=3 --category="apps" --fail-fast --flutter --dir-exists="lib" -- "flutter build ipa"
     description: Build all apps in this project for iOS.
 
   test:core_unit_test:
